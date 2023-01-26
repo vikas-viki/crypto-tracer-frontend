@@ -1,0 +1,17 @@
+
+
+.main_card_container > div{
+    padding: 10px!important;
+}
+
+.main_card_container{
+    cursor: pointer;
+    /* background: linear-gradient(to right, #100732, #231468, #28186e)!important; */
+    color: black;
+    border-radius: 20px!important;
+}
+
+
+.price{
+    font-family: sans-serif;
+}

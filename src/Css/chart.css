@@ -1,0 +1,103 @@
+.chart_container {
+  width: 95%;
+  margin: 20px !important;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.main-chart-container {
+  height: 63vh;
+  width: 95%;
+  margin-left: 20px;
+  margin-top: 15px;
+  border: 1px solid grey;
+  border-radius: 7px;
+  /* -webkit-box-shadow: 4px 4px 12px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 12px -6px rgba(0, 0, 0, 0.75);
+  /* box-shadow: 4px 4px 12px -6px rgba(0, 0, 0, 0.75);
+  
+  box-shadow: 0.5px 1px 5px 0px rgba(0,0,0,0.75); */
+}
+.main-chart-container:hover{
+  cursor: pointer;
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px!important; */
+}
+
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filtering-days-btn {
+  margin-left: 60px !important;
+  grid-column-start: 3;
+  grid-column-end: 7;
+
+  display: flex !important;
+  gap: 10px;
+}
+
+.filtering-days-btn > button {
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid grey;
+  margin-right: 10px;
+}
+
+/* Loading css */
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  top: 130px;
+  border: 3px solid;
+  border-color: #06b0ff #06b0ff transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #FF3D00 #FF3D00;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 32px;
+  height: 32px;
+  border-color: #06b0ff #06b0ff transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+    

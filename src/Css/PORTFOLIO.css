@@ -1,0 +1,27 @@
+.nothing-emoji {
+  font-size: 50px;
+  position: relative;
+  opacity: 0.85;
+  animation: rounds 5s infinite;
+}
+
+.login-link {
+  font-size: 30px;
+}
+
+.login-link-text {
+  font-size: 30px !important;
+  font-family: "Sofia Sans", sans-serif !important;
+}
+
+@keyframes rounds {
+  0%{left: -100px;}
+  15%{left: -50px;}
+  30%{left: 0px;}
+  45%{left: 100px;}
+  60%{left: 150px;}
+  75%{left: 100px;}
+  90%{left: 0px;}
+  100%{left: -100px;}
+}
+

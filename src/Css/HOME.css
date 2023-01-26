@@ -1,0 +1,29 @@
+.coins_list_item {
+  /* border-left: 1px solid grey; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0px !important;
+  /* box-shadow: 0.5px 0.5px 5px 0px rgba(0,0,0,0.75); */
+}
+
+.coin_card_list > div {
+  border: 0.1px solid grey;
+}
+
+.coins_list_item::-webkit-scrollbar {
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.coins_list_item::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.598);
+  border-radius: 5px;
+}
+
+.filtering-btn{
+  border-radius: 10px!important;
+}
+
+.coins_list {
+  padding: 0px !important;
+}

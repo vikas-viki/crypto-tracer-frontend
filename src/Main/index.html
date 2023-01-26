@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto tracer</title>
+    
+    <meta
+      http-equiv="Content-Security-policy"
+      content="
+      default-src 'self' http://localhost:8080;
+      connect-src 'self' https://api.coingecko.com https://accounts.google.com https://cors.bridged.cc/https://github.com/login/oauth/access_token https://accounts.google.com/gsi/;
+      base-uri 'self';
+      font-src 'self' https: data: http://localhost:3000 http://localhost:8080 https://www.npmjs.com;
+      form-action *;
+      frame-ancestors 'self';
+      img-src 'self' data: https://assets.coingecko.com;
+      object-src 'none';
+      script-src 'self'  https://accounts.google.com/gsi/client 'unsafe-eval';
+      frame-src 'self' https://accounts.google.com/ https://accounts.google.com/gsi/;
+      script-src-attr 'none';
+      style-src 'self' https: https://accounts.google.com/gsi/style 'unsafe-inline';
+      upgrade-insecure-requests
+    "
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Courier+Prime&family=Dosis&family=Exo+2:wght@300;400&family=Lato:ital,wght@0,300;0,400;1,300&family=Lobster&family=Montserrat+Alternates&family=Nunito:ital,wght@0,300;0,500;1,400&family=Poppins:wght@300;400&family=Quicksand&family=Roboto+Flex:opsz@8..144&family=Roboto+Mono:wght@300&family=Sofia+Sans:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  </head>
+  
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
