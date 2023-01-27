@@ -2,8 +2,8 @@ import { Container, Box, TextField, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useContext } from 'react';
 import "../../Css/login.css";
 import jwt_decode from 'jwt-decode';
-
-import userContext from '../../Context/user_context';
+import portContext from "../../Context/portfolio/portfolioContext"
+import userContext from '../../Context/user/user_context';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 const GoogleclientId = "672910961327-o4a65hd4382k9inpd9ajosp43ug5jthm.apps.googleusercontent.com";
@@ -14,7 +14,8 @@ import { GoogleLogin } from '@react-oauth/google';
 const Login = () => {
   const usercontext = useContext(userContext);
   const { setUsername, setUseremail, setUserpic } = usercontext;
-
+  const {hello} = useContext(portContext);
+console.log(hello)
   function handleCredentialLoginResponse(response) {
     var userObj = jwt_decode(response.credential);
     console.log(userObj);
@@ -24,20 +25,6 @@ const Login = () => {
     setUsername(userObj.username);
   }
 
-  // // For google login 
-  // useEffect(() => {
-  //   window.onload = function () {
-  //     google.accounts.id.initialize({
-  //       client_id: "672910961327-o4a65hd4382k9inpd9ajosp43ug5jthm.apps.googleusercontent.com",
-  //       callback: handleCredentialLoginResponse
-  //     });
-  //     google.accounts.id.renderButton(
-  //       document.getElementById("buttonDiv"),
-  //       { theme: "pill", size: "large" }  // customization attributes
-  //     );
-  //     google.accounts.id.prompt(); // also display the One Tap dialog
-  //   }
-  // },[])
 
   return (
 

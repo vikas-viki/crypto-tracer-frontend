@@ -7,7 +7,7 @@ import coin_context from "../Context/Coin_context";
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import userContext from "../Context/user_context";
+import userContext from "../Context/user/user_context";
 
 export default function SideBar() {
     const userState = useContext(userContext);
