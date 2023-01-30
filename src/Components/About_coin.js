@@ -24,7 +24,7 @@ export default function About_coin() {
             <Grid
                 sx={{
                     height: "31vh",
-                    boxShadow: "rgba(0, 0, 0, 0.35) 5px 5.95px 5.95px 1px"
+                    boxShadow: "rgba(0, 0, 0, 0.25) 5px 5.95px 5.95px 1px"
                 }} container spacing={1} id="about-container" className="about_container"
             >
                 {loaded &&

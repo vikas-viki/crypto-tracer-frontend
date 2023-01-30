@@ -10,13 +10,13 @@ const Portfolio = () => {
   const { loggedIn, setLoggedIn } = user;
   return (
     <Container sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column', height: "100Vh" }}>
-      {loggedIn &&
+      {!loggedIn ?
         <>
           <span className='nothing-emoji'>🔍</span><br />
           <Typography className='login-link-text'> Login <Link to="/login" className='login-link'>here</Link> to your account to access transactions</Typography>
-        </>
+        </> :
+        <Typography>Your transactions</Typography>
       }
-      <Typography>Your transactions</Typography>
 
 
     </Container>

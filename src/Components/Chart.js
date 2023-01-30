@@ -56,8 +56,8 @@ export default function Coin_Chart() {
             <Box sx={{
                 padding: 0,
                 backgroundColor: "#fff",
-                boxShadow: "rgba(3, 102, 214, 0.6) 0px 4px 20px 3px"
-                // boxShadow: "rgba(3, 102, 214, 0.3) 0px 50px 100px -30px, rgba(3, 102, 214, 0.3) 0px 50px 100px -20px, rgba(3, 102, 214, 0.3) 0px 50px 100px -30px, rgba(3, 102, 214, 0.3) 0px -2px 6px 0px inset"
+        
+                boxShadow: "#09f 1px 9px 9px 2px"
             }}
                 id="main-chart-container"
                 className="main-chart-container">
