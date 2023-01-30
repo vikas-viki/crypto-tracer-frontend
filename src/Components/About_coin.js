@@ -21,62 +21,68 @@ export default function About_coin() {
     });
     return (
         <>
-            {
-                loaded && <Grid
-                    sx={{ height: "31vh",
-                    boxShadow: "rgba(0, 0, 0, 0.35) 5px 5.95px 5.95px 1px" }} container spacing={1}  id="about-container" className="about_container">
-                    <Grid item xs={8}>
-                        <Box
-                            sx={{
-                                display: "flex",
-                                justifyContent: "space-around",
-                                flexDirection: "column",
-                                paddingBottom: "5px",
-                                paddingLeft: "5px",
-                                paddingTop: "5px",
-                                paddingRight: "5px",
-                                color: theme === 'dark' && "#fff"
-                            }}
-                        >
-                            <img src={scData.image.large} alt="image" width={70} height={70} /><br />
-                            <Typography variant="h4"
-                                sx={{ position: "relative", top: "-10px", left: "10px",  color: theme === 'dark' && "white" }}>
-                                {scData.name}
+            <Grid
+                sx={{
+                    height: "31vh",
+                    boxShadow: "rgba(0, 0, 0, 0.35) 5px 5.95px 5.95px 1px"
+                }} container spacing={1} id="about-container" className="about_container"
+            >
+                {loaded &&
+                    <>
+                        <Grid item xs={8}>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "space-around",
+                                    flexDirection: "column",
+                                    paddingBottom: "5px",
+                                    paddingLeft: "5px",
+                                    paddingTop: "5px",
+                                    paddingRight: "5px",
+                                    color: theme === 'dark' && "#fff"
+                                }}
+                            >
+                                <img src={scData.image.large} alt="image" width={70} height={70} /><br />
+                                <Typography variant="h4"
+                                    sx={{ position: "relative", top: "-10px", left: "10px", color: theme === 'dark' && "white" }}>
+                                    {scData.name}
+                                </Typography>
+                            </Box>
+                            <Typography sx={{ position: "relative", top: "-10px", left: "10px", color: theme === 'dark' && "white" }} className="coin_description">
+                                {parse(data)}.<br />
+                                For more information visit <Link href={scData.links.homepage[0]} target="_blank">Official website</Link>.
                             </Typography>
-                        </Box>
-                        <Typography sx={{ position: "relative", top: "-10px", left: "10px",  color: theme === 'dark' && "white" }} className="coin_description">
-                            {parse(data)}.<br />
-                            For more information visit <Link href={scData.links.homepage[0]} target="_blank">Official website</Link>.
-                        </Typography>
-                    </Grid>
-                    <Divider />
-                    <Grid item xs={4}>
-                        <Typography sx={{
-                            fontSize: "25px",
-                            fontFamily: "poppins",
-                            color: theme === 'dark' && "white"
-                        }}>
-                            Rank: <span id="description_rank">{scData.market_cap_rank}</span>
-                        </Typography>
-                        <Typography sx={{
-                            fontSize: "25px",
-                            fontFamily: "poppins",
-                            color: theme === 'dark' && "white"
-                        }}>
-                            Price: <span id="description_price">{symbol}{new Intl.NumberFormat(symbol === '$' ? 'en-US' : 'hi-IN').format(scData.market_data.current_price[currency.toLowerCase()])}</span>
-                        </Typography>
-                        <Typography sx={{
-                            fontSize: "25px",
-                            fontFamily: "poppins",
-                            color: theme === 'dark' && "white"
-                        }}>
-                            Market cap: <span id="description_price">{symbol}{scData.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -9)}B</span>
-                        </Typography>
-                        {/* <input type='color' onChange={(e) => {document.getElementById("about-container").style.backgroundColor = e.target.value}}/> */}
+                        </Grid>
+                        <Divider />
+                        <Grid item xs={4}>
+                            <Typography sx={{
+                                fontSize: "25px",
+                                fontFamily: "poppins",
+                                color: theme === 'dark' && "white"
+                            }}>
+                                Rank: <span id="description_rank">{scData.market_cap_rank}</span>
+                            </Typography>
+                            <Typography sx={{
+                                fontSize: "25px",
+                                fontFamily: "poppins",
+                                color: theme === 'dark' && "white"
+                            }}>
+                                Price: <span id="description_price">{symbol}{new Intl.NumberFormat(symbol === '$' ? 'en-US' : 'hi-IN').format(scData.market_data.current_price[currency.toLowerCase()])}</span>
+                            </Typography>
+                            <Typography sx={{
+                                fontSize: "25px",
+                                fontFamily: "poppins",
+                                color: theme === 'dark' && "white"
+                            }}>
+                                Market cap: <span id="description_price">{symbol}{scData.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -9)}B</span>
+                            </Typography>
+                            {/* <input type='color' onChange={(e) => {document.getElementById("about-container").style.backgroundColor = e.target.value}}/> */}
 
-                    </Grid>
-                </Grid>
-            }
+                        </Grid>
+                    </>
+                }
+            </Grid>
+
         </>
 
     )
