@@ -1,11 +1,13 @@
 .about_container {
   border: 1px solid grey;
-  width: 95% !important;
-  margin-left: 22px !important;
-  margin-top: 20px !important;
+  width: 820px !important;
+  margin-left: 37px !important;
+  margin-top: 35px !important;
   border-radius: 7px;
   box-shadow: aqua;
   background-color: #fff;
+  min-height: 250px;
+  max-height: 250px;
   /* -webkit-box-shadow: 4px 7px 12px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 4px 7px 12px 0px rgba(0, 0, 0, 0.75); */
   /* box-shadow: 4px 7px 12px 0px rgba(0, 0, 0, 0.75); */

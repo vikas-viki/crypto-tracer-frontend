@@ -56,8 +56,7 @@ export default function Coin_Chart() {
             <Box sx={{
                 padding: 0,
                 backgroundColor: "#fff",
-        
-                boxShadow: "#09f 1px 9px 9px 2px"
+                boxShadow: "rgba(3, 102, 214, 0.6) 0px 0px 0px 3px"
             }}
                 id="main-chart-container"
                 className="main-chart-container">
@@ -92,10 +91,9 @@ export default function Coin_Chart() {
                     </Container>
                 </div>
                 <Divider />
-                <Container
+                <div
                     className="chart"
                     sx={{
-                        width: "100%",
                         display: "flex",
                         justifyContent: "center",
                         alignContent: "center",
@@ -208,7 +206,7 @@ export default function Coin_Chart() {
                         )
                     }
 
-                </Container>
+                </div>
             </Box>
 
         </>

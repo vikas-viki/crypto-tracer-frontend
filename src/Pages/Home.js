@@ -67,21 +67,25 @@ export default function Home() {
   return (
     <div className="main_home_container" id="main_home_container">
       {/* <input type='color' onChange={(e) => {document.getElementById("main_home_container").style.backgroundColor = e.target.value}}/> */}
-      <Grid container spacing={1}>
-        <Grid className="chart_about_container" item xs={8} >
+      <Container 
+      sx={{
+        display: 'flex',
+        justifyContent: "center"
+      }}
+      >
+        <Box className="chart_about_container"   >
           <Coin_Chart />
           <About_coin />
-        </Grid>
-        <Grid
-          item
-          xs={3.8}
+        </Box>
+        <Box
           sx={{
-            height: "97vh",
-            marginTop: "20px",
+            height: "780px",
+            marginLeft: "20px",
+            marginTop: "13px",
             border: "1px solid grey",
             borderRadius: "7px",
             background: theme === 'dark' && '#813FE4',
-            boxShadow: "rgba(0, 0, 0, 0.35) 5px 5.95px 5.95px 1px"
+            boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px"
           }}
           className="coins_list_item">
           <Container
@@ -158,8 +162,8 @@ export default function Home() {
               }
             </Box>
           </Container>
-        </Grid>
-      </Grid>
+        </Box>
+      </Container>
     </div>
   );
 }

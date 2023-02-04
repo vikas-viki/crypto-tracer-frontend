@@ -1,13 +1,16 @@
 
 .Sidebar_container {
-  display: grid;
+  display: flex;
   text-align: center;
-  grid-template-rows: repeat(9, 110px);
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
   /* border-right: 1px solid grey; */
   overflow: hidden;
   background-color: #fff!important;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  border-right: 2px solid rgba(128, 128, 128, 0.696);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .user_profile {
@@ -23,6 +26,8 @@
   border: 1px solid grey;
   padding: 10px;
   border-radius: 35px;
+  margin-top: 20px;
+  margin-bottom: 30px;
   user-select: none;
   cursor: pointer;
 }
@@ -31,15 +36,22 @@
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 10px;
+  background-clip: text;
+  -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-image: linear-gradient(144deg, #8608b4, #492fed 60%, #bd6fda);
+
   font-family: "Nunito", sans-serif;
 }
 
 .Side_bars {
-  grid-row-start: 3;
-  grid-row-end: 4;
   display: flex;
+  position: relative;
+  top: -85px;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
+  
   align-items: center;
 }
 
@@ -48,26 +60,36 @@
 }
 
 .Side_bars > a {
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 35px!important;
+  align-items: center;
   list-style: none;
   text-decoration: none;
   font-family: "Chivo Mono", monospace;
   position: static;
-  font-size: 18px;
-  border: 1px solid grey;
-  width: 140px;
-  padding: 5px;
-  border-radius: 5px;
+  font-size: 20px;
+  width: 100%;
+  padding: 15px;
   cursor: pointer;
-  box-shadow: 0px 8px 15px rgba(5, 0, 0, 0.1);
+  color: rgba(76, 75, 75, 0.658);
   margin-bottom: 3px;
 }
 
 .Side_bars > a:hover {
-  position: relative;
-  transition: 0.5s;
-  scale: 1.2;
+  transition: 0.2s;
   color: #fff;
-  background-color: grey;
+  background-color: rgba(37, 47, 43, 0.366);
+}
+
+.dashboard{
+  position: relative;
+  top:4px
+}
+
+.nav-hide{
+  padding-left: 15px;
 }
 
 .Side_bars > a::backdrop{
@@ -75,8 +97,13 @@
   transition: 0.5s;
   scale: 1;
   color: #fff;
-  background-color: grey;
+  background-color: rgba(128, 128, 128, 0.326);
 }
+.active{
+  border-bottom: 4px solid rgba(119, 136, 153, 0.2);
+  color: rgb(45, 21, 21)!important;
+  background-color: rgba(119, 136, 153, 0.2);
+} 
 
 .theme-setter{
   grid-row-start: 8;
@@ -89,4 +116,17 @@
 
 .theme-setter > svg:hover{
  cursor: pointer; 
+}
+
+@media (width <= 1535px){
+  .nav-hide{
+    display: none!important;
+  }
+  .App_name_container > span{
+    display: none;
+  }
+  .Side_bars > a {
+    justify-content: center;
+    padding-left: 13px!important;
+  }
 }

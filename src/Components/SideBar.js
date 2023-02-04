@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "../Css/sidebar.css";
-import { Button, Tooltip } from "@mui/material";
+import { Tooltip } from "@mui/material";
 import coin_context from "../Context/Coin_context";
-
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import user from "../assets/user.png"
+import watchlist from "../assets/bookmark.png"
+import barChart from "../assets/bar-chart.png"
 import Switch from '@mui/material/Switch';
 import userContext from "../Context/user/user_context";
 
@@ -34,20 +34,23 @@ export default function SideBar() {
     }
     return (
         <div className="Sidebar_container" id="Sidebar_container" style={{ backgroundColor: "#fff" }}>
-            <div className="user_profile">
-                {userpic ?
-                    <img className="user_pic" src={userpic} alt="user_pic" />
-                :
-                    <span>User</span>
-                }
-            </div>
-            <div className="App_name_container">
-                <span>Crypto re-viewer</span>
-            </div>
+            <span>
+
+                <div className="user_profile">
+                    {userpic ?
+                        <img className="user_pic" src={userpic} alt="user_pic" />
+                        :
+                        <span>User</span>
+                    }
+                </div>
+                <div className="App_name_container">
+                    <span>Crypto Tracer</span>
+                </div>
+            </span>
             <div className="Side_bars">
-                <NavLink to="/">Dashboard</NavLink>
-                <NavLink to="/profile">Profile</NavLink>
-                <NavLink to="/watchlist">Watchlist</NavLink>
+                <NavLink to="/"><img src={barChart} width='23' alt='D' /><span className="nav-hide dashboard">Dashboard</span></NavLink>
+                <NavLink to="/profile"><img src={user} width='23' alt='P' /><span className="nav-hide">Profile</span></NavLink>
+                <NavLink to="/watchlist"><img src={watchlist} width='23' alt='W' /><span className="nav-hide">Watchlist</span></NavLink>
             </div>
             <div className="theme-setter" >
 
