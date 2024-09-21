@@ -1,0 +1,34 @@
+.coincard {
+    display: grid;                   
+    grid-template-columns: auto 1fr 1fr 1fr; 
+    align-items: center;             
+    border-bottom: 1px solid black;
+    text-align: left;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.coincard img {
+    width: 50px;                    
+    padding-right: 10px;
+}
+
+.coincard-name {
+    margin-right: 5px;
+    text-align: left;
+}
+
+.coincard-price {
+    margin-right: 5px;
+    position: relative;
+    top: 5px;
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color: green;
+}
