@@ -23,7 +23,7 @@ export const defaultSelectedCoin: DetailedCoin = {
     links: { homepage: [""], whitepaper: "" },
     localization: null,
     market_cap_rank: 0,
-    market_data: { market_cap: { usd: 0, inr: 0 } },
+    market_data: { market_cap: { usd: 0, inr: 0 } , current_price: {usd: 0, inr: 0}},
     name: "",
     platforms: null,
     preview_listing: null,

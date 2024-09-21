@@ -7,6 +7,7 @@
 
 .coinlist-main {
     height: 100%;
+    width: 100%;
 }
 
 .coinlist-header button {
@@ -21,6 +22,8 @@
 }
 
 .coinlist-list {
+    width: 100%;
+    overflow: hidden;
     height: 100%;
     overflow: scroll;
 }

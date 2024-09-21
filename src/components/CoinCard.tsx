@@ -1,16 +1,20 @@
-import { ReactElement } from "react";
+import { ReactElement, useContext } from "react";
 import "../styles/Coincard.css";
 import { getFormattedPrice } from "../context/utils";
+import { Context } from "../context/State";
 
 export default function CoinCard(props: {
     img: string,
     name: string,
     price: string,
-    change: number
+    change: number,
+    id: string
 }): ReactElement {
 
+    const context = useContext(Context);
+
     return (
-        <div className="coincard">
+        <div className="coincard" onClick={() => { context.getSelectedCoinData(props.id.toLowerCase()) }}>
             <img src={props.img} alt="IMG" className="coincard-img" />
             <span title="Name" className="coincard-name">{props.name}</span>
             <span title={`Price ${props.price}`} className="coincard-price">{getFormattedPrice(props.price)}</span>

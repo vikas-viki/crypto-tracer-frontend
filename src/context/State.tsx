@@ -17,7 +17,7 @@ export const Context = createContext<ContextType>({
 
 export default function State(props: React.PropsWithChildren): JSX.Element {
     const BASE_URL = `https://api.coingecko.com/api/v3/coins`;
-    const API_KEY = `?x_cg_demo_api_key=${import.meta.env.COIN_GEKO_APIKEY}`;
+    const API_KEY = `?x_cg_demo_api_key=${import.meta.env.VITE_COIN_GEKO_APIKEY}`;
 
     const [allCoins, setAllCoins] = useState<Coin[]>([]);
     const [selectedCoin, setSelectedCoin] = useState<DetailedCoin>(defaultSelectedCoin);
@@ -39,13 +39,13 @@ export default function State(props: React.PropsWithChildren): JSX.Element {
     }
 
     const getSelectedCoinData = async (coin: string) => {
-        var data = tryCatch(axios.get(`${BASE_URL}/${coin}${API_KEY}`));
+        var data = await tryCatch(axios.get(`${BASE_URL}/${coin}${API_KEY}`));
         setSelectedCoin(data);
     }
 
     useEffect(() => {
         getAllCoinsData();
-        // getSelectedCoinData("bitcoin");
+        getSelectedCoinData("bitcoin");
     }, []);
 
     return (

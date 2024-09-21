@@ -4,6 +4,8 @@ import { Context } from './context/State';
 import { ContextType } from './context/types';
 import Navbar from './sections/Navbar';
 import CoinList from './sections/CoinList';
+import CoinChart from './sections/CoinChart';
+import CoinDetails from './sections/CoinDetails';
 
 function App() {
   var context: ContextType = useContext(Context);
@@ -17,7 +19,8 @@ function App() {
       <Navbar />
       <div className='main'>
         <div className='main-coin'>
-          left
+          <CoinChart />
+          <CoinDetails />
         </div>
         <div className='main-coinlist'>
           <CoinList />

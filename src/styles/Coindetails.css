@@ -1,0 +1,53 @@
+.coindetails-main {
+    width: 100%;
+    height: 25%;
+}
+
+.coindetails-sub {
+    padding: 15px;
+    display: flex;
+    gap: 20px
+}
+
+.coindetails-sub .coindetails-stat {
+    border: 1px solid black;
+    height: 100%;
+}
+
+.coindetails-stat-sub :nth-child(1){
+    background-color: rgba(128, 128, 128, 0.445);
+}
+
+.coindetails-stat-sub span {
+    display: block;
+    width: 100px;
+    border-bottom: 1px solid black;
+    padding: 3px;
+}
+
+.coindetails-stat-sub:last-child span:last-child {
+    border-bottom: none;
+}
+
+.coindetails-text img {
+    width: 130px;
+    height: 130px;
+    margin-right: 10px;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.coindetails-text {
+    display: flex;
+    align-items: end;
+    line-height: 18.5px;
+}
+
+.coindetails-text div span:first-child {
+    font-weight: 500;
+    font-size: 21px;
+}
+
+a{
+    text-decoration: none;
+}

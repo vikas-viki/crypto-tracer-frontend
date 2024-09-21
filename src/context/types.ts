@@ -45,7 +45,7 @@ export type DetailedCoin = {
     links: { homepage: string[], whitepaper: string },
     localization: any,
     market_cap_rank: number,
-    market_data: { market_cap: { usd: number, inr: number } },
+    market_data: { market_cap: { usd: number, inr: number }, current_price: {usd: number, inr: number} },
     name: string,
     platforms: any,
     preview_listing: any,

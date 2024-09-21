@@ -5,7 +5,7 @@ export default function Navbar(): ReactNode {
     return (
         <div className="navbar-main">
             <div className="navbar-left">
-                <h1>Trace Crypto</h1>
+                <span>Trace Crypto</span>
             </div>
             <div className="navbar-right">
                 Search

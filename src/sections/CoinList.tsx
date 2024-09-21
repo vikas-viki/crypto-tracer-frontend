@@ -22,7 +22,9 @@ export default function CoinList(): ReactNode {
                             img={coin.image}
                             price={context.currency == "INR" ? `₹${coin.current_price}` : `$${coin.current_price}`}
                             change={coin.price_change_percentage_24h}
-                            name={coin.name} />
+                            name={coin.name}
+                            id={coin.id}
+                        />
                     ))
                 }
             </div>
