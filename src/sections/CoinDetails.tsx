@@ -10,8 +10,6 @@ export default function CoinDetails(): ReactNode {
 
     const selectedCoin = context.selectedCoin;
 
-    console.log({ selectedCoin: selectedCoin });
-
     return (
         <div className="coindetails-main">
             <div className="coindetails-sub">

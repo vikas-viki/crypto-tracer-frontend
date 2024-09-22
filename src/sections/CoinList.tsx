@@ -16,7 +16,7 @@ export default function CoinList(): ReactNode {
             </div>
             <div className="coinlist-list">
                 {
-                    context?.allCoins?.map((coin: Coin) => (
+                    context?.renderData?.map((coin: Coin) => (
                         <CoinCard
                             key={coin.id}
                             img={coin.image}

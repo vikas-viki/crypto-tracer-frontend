@@ -45,7 +45,7 @@ export type DetailedCoin = {
     links: { homepage: string[], whitepaper: string },
     localization: any,
     market_cap_rank: number,
-    market_data: { market_cap: { usd: number, inr: number }, current_price: {usd: number, inr: number} },
+    market_data: { market_cap: { usd: number, inr: number }, current_price: { usd: number, inr: number } },
     name: string,
     platforms: any,
     preview_listing: any,
@@ -61,6 +61,7 @@ export type DetailedCoin = {
 
 export interface ContextType {
     allCoins: Coin[];
+    renderData: Coin[];
     selectedCoin: DetailedCoin,
     test: () => void;
     getGainers: () => void;
@@ -68,5 +69,17 @@ export interface ContextType {
     getAllCoinsData: () => void;
     setCurrency: (currency: string) => void;
     getSelectedCoinData: (coin: string) => void;
+    setChartTimePeriod: (time: Days) => void;
+    searchCoin: (text: string) => void;
     currency: string;
+    chartData: ChartData;
+    chartTimePeriod: Days
 };
+
+export type ChartData = {
+    market_caps: number[],
+    prices: number[],
+    total_volumes: number[]
+};
+
+export type Days = 1 | 7 | 30 | 365;

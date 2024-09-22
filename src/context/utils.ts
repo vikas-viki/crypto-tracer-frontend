@@ -1,5 +1,6 @@
 import numeral from "numeral";
-import { DetailedCoin } from "./types";
+import { ChartData, ContextType, Days, DetailedCoin } from "./types";
+import { AxiosError } from "axios";
 
 export const test = () => {
     console.log("test called!");
@@ -17,13 +18,13 @@ export const defaultSelectedCoin: DetailedCoin = {
     developer_data: null,
     genesis_date: "",
     hashing_algorithm: "",
-    id: "",
+    id: "bitcoin",
     image: { thumb: "", small: "", large: "" },
     last_updated: "",
     links: { homepage: [""], whitepaper: "" },
     localization: null,
     market_cap_rank: 0,
-    market_data: { market_cap: { usd: 0, inr: 0 } , current_price: {usd: 0, inr: 0}},
+    market_data: { market_cap: { usd: 0, inr: 0 }, current_price: { usd: 0, inr: 0 } },
     name: "",
     platforms: null,
     preview_listing: null,
@@ -37,16 +38,22 @@ export const defaultSelectedCoin: DetailedCoin = {
     web_slug: ""
 };
 
+export const defaultChartData: ChartData = {
+    market_caps: [],
+    prices: [],
+    total_volumes: []
+}
+
 export const tryCatch: any = async (result: Promise<any>) => {
     try {
         var data = (await result).data;
-    } catch (e) {
-        console.log(e);
+    } catch (e: AxiosError | any) {
+        console.error(e.message);
     }
     return data;
 }
 
-export const getFormattedPrice = (price: string) => {
+export const getFormattedPrice = (price: string): string => {
     let priceAfterFormat = numeral(price).format("0a");
     var finalPrice: string;
     let currency: string = price.slice(0, 1);
@@ -59,4 +66,57 @@ export const getFormattedPrice = (price: string) => {
         finalPrice = currency + numeral(amount).format("0a");
     }
     return finalPrice;
+}
+
+export const getCurrency = (context: ContextType): string => {
+    if (context.currency == "INR") {
+        return "₹";
+    } else {
+        return "$";
+    }
+}
+
+export const getChartTime = (time: string): number => {
+    switch (time) {
+        case "DAY":
+            return 1;
+        case 'WEEK':
+            return 7;
+        case 'NONTH':
+            return 30;
+        default:
+            return 365;
+    }
+}
+
+export const getChartTimeUI = (time: number): string => {
+    switch (time) {
+        case 1:
+            return '1D';
+        case 7:
+            return '1W';
+        case 30:
+            return '1M';
+        default:
+            return '1Y';
+    }
+}
+
+
+export const getInterval = (context: ContextType): number => {
+    if (context.chartTimePeriod == getChartTime("WEEK")) {
+        return 25;
+    } else if (context.chartTimePeriod == getChartTime("MONTH")) {
+        return 70;
+    } else if (context.chartTimePeriod == getChartTime("DAY")) {
+        return 50;
+    } else {
+        return 30;
+    }
+}
+
+export const getNextTime = (currentTime: number): Days => {
+    const times = [1, 7, 30, 365];
+    var index = times.indexOf(currentTime);
+    return times[++index % 4] as Days;
 }
