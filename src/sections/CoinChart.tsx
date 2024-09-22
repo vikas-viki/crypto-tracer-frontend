@@ -15,7 +15,7 @@ export default function CoinChart(): ReactNode {
         });
 
         var option;
-        
+
         let date = context?.chartData?.prices?.map((price: any) => {
             return new Date(price[0]);
         });
@@ -91,10 +91,10 @@ export default function CoinChart(): ReactNode {
                     }
                 },
                 min: function (value: any) {
-                    return value.min - (value.min * getChartViewMinMax(context.chartTimePeriod) / 100);
+                    return Number(value.min - (value.min * getChartViewMinMax(context.chartTimePeriod, context) / 100)).toFixed(0);
                 },
                 max: function (value: any) {
-                    return Number(value.max + (value.max * getChartViewMinMax(context.chartTimePeriod) / 100)).toFixed(2);
+                    return Number(value.max + (value.max * getChartViewMinMax(context.chartTimePeriod, context) / 100)).toFixed(0);
                 },
                 axisLabel: {
                     showMinLabel: false,

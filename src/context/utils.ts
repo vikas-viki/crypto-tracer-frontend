@@ -89,15 +89,21 @@ export const getChartTime = (time: string): number => {
     }
 }
 
-export const getChartViewMinMax = (time: number) => {
+export const getChartViewMinMax = (time: number, context: ContextType) => {
     switch (time) {
         case 1:
             return 0.5;
         case 7:
             return 1;
         case 30:
+            if (context.selectedCoin.categories.includes("Stablecoins")) {
+                return 1;
+            }
             return 5;
         default:
+            if (context.selectedCoin.categories.includes("Stablecoins")) {
+                return 5;
+            }
             return 25;
     }
 }
@@ -129,13 +135,24 @@ export const getIntervalX = (context: ContextType): number => {
 
 
 export const getIntervalY = (context: ContextType): number => {
+    if (context.selectedCoin.categories.includes("Stablecoins")) {
+        if (context.chartTimePeriod == 1) {
+            return 0.2;
+        } else if (context.chartTimePeriod == 7) {
+            return 0.4;
+        } else if (context.chartTimePeriod == 30) {
+            return 0.5;
+        } else {
+            return 1;
+        }
+    }
     var prices: number[] = context.chartData.prices.map((price: any, index, array) => price[1]);
     var value = {
         min: Math.min(...prices),
         max: Math.max(...prices),
     };
-    value.min -= (value.min * getChartViewMinMax(context.chartTimePeriod) / 100);
-    value.max += (value.max * getChartViewMinMax(context.chartTimePeriod) / 100);
+    value.min -= (value.min * getChartViewMinMax(context.chartTimePeriod, context) / 100);
+    value.max += (value.max * getChartViewMinMax(context.chartTimePeriod, context) / 100);
 
     return Math.round((value.max - value.min) / 5);
 }
