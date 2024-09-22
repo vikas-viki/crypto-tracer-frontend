@@ -56,7 +56,6 @@ export default function State(props: React.PropsWithChildren): JSX.Element {
         axios.get(`${BASE_URL}/${selectedCoin.id}/market_chart?vs_currency=${currency.toLowerCase()}&days=${chartTimePeriod}${API_KEY}`)
             .then(({ data }) => {
                 setChartData(data);
-                console.log({ chartData: data });
             })
             .catch((e) => {
                 console.log(e);

@@ -5,6 +5,7 @@
     border-bottom: 1px solid black;
     text-align: left;
     padding: 10px;
+    overflow: hidden!important;
     cursor: pointer;
 }
 

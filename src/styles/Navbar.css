@@ -40,6 +40,7 @@
     background: none;
     outline: none;
     padding: 11.5px;
+    width: max-content;
     cursor: pointer;
 }
 

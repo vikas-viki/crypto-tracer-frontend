@@ -6,7 +6,7 @@ import { Coin } from "../context/types";
 
 export default function CoinList(): ReactNode {
     const context = useContext(Context);
-    console.log(context);
+
     return (
         <div className="coinlist-main">
             <div className="coinlist-header">
@@ -16,7 +16,7 @@ export default function CoinList(): ReactNode {
             </div>
             <div className="coinlist-list">
                 {
-                    context?.renderData?.map((coin: Coin) => (
+                    context?.renderData?.map((coin: Coin, index: number) => (
                         <CoinCard
                             key={coin.id}
                             img={coin.image}
@@ -24,6 +24,7 @@ export default function CoinList(): ReactNode {
                             change={coin.price_change_percentage_24h}
                             name={coin.name}
                             id={coin.id}
+                            index={index}
                         />
                     ))
                 }
