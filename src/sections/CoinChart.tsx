@@ -2,7 +2,7 @@ import { ReactNode, useContext, useEffect, useRef } from "react";
 import "../styles/Coinchart.css";
 import * as echarts from "echarts";
 import { Context } from "../context/State";
-import { getCurrency, getInterval } from "../context/utils";
+import { getChartViewMinMax, getCurrency, getIntervalX, getIntervalY } from "../context/utils";
 
 export default function CoinChart(): ReactNode {
     const chartRef = useRef<HTMLDivElement>(null);
@@ -15,7 +15,7 @@ export default function CoinChart(): ReactNode {
         });
 
         var option;
-        console.log(context?.chartData?.prices);
+        
         let date = context?.chartData?.prices?.map((price: any) => {
             return new Date(price[0]);
         });
@@ -66,7 +66,7 @@ export default function CoinChart(): ReactNode {
                     }
                 },
                 axisLabel: {
-                    interval: getInterval(context),
+                    interval: getIntervalX(context),
                     show: true,
                     formatter: function (value: string, index: number) {
                         var date = new Date(value);
@@ -91,16 +91,16 @@ export default function CoinChart(): ReactNode {
                     }
                 },
                 min: function (value: any) {
-                    return value.min - (value.min * 0.5 / 100);
+                    return value.min - (value.min * getChartViewMinMax(context.chartTimePeriod) / 100);
                 },
                 max: function (value: any) {
-                    return value.max + (value.max * 0.5 / 100);
+                    return Number(value.max + (value.max * getChartViewMinMax(context.chartTimePeriod) / 100)).toFixed(2);
                 },
-                axisLabel:{
-                    interval: 'auto',
+                axisLabel: {
                     showMinLabel: false,
-                    showMaxLabel: false
-                }
+                    showMaxLabel: true,
+                },
+                interval: getIntervalY(context)
             },
             series: [
                 {

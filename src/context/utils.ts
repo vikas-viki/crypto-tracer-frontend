@@ -82,10 +82,23 @@ export const getChartTime = (time: string): number => {
             return 1;
         case 'WEEK':
             return 7;
-        case 'NONTH':
+        case 'MONTH':
             return 30;
         default:
             return 365;
+    }
+}
+
+export const getChartViewMinMax = (time: number) => {
+    switch (time) {
+        case 1:
+            return 0.5;
+        case 7:
+            return 1;
+        case 30:
+            return 5;
+        default:
+            return 25;
     }
 }
 
@@ -102,17 +115,29 @@ export const getChartTimeUI = (time: number): string => {
     }
 }
 
-
-export const getInterval = (context: ContextType): number => {
+export const getIntervalX = (context: ContextType): number => {
     if (context.chartTimePeriod == getChartTime("WEEK")) {
         return 25;
     } else if (context.chartTimePeriod == getChartTime("MONTH")) {
-        return 70;
+        return 100;
     } else if (context.chartTimePeriod == getChartTime("DAY")) {
         return 50;
     } else {
         return 30;
     }
+}
+
+
+export const getIntervalY = (context: ContextType): number => {
+    var prices: number[] = context.chartData.prices.map((price: any, index, array) => price[1]);
+    var value = {
+        min: Math.min(...prices),
+        max: Math.max(...prices),
+    };
+    value.min -= (value.min * getChartViewMinMax(context.chartTimePeriod) / 100);
+    value.max += (value.max * getChartViewMinMax(context.chartTimePeriod) / 100);
+
+    return Math.round((value.max - value.min) / 5);
 }
 
 export const getNextTime = (currentTime: number): Days => {

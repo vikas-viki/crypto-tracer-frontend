@@ -75,7 +75,11 @@ export default function State(props: React.PropsWithChildren): JSX.Element {
 
     useEffect(() => {
         getChartData();
-    }, [selectedCoin, chartTimePeriod]);
+    }, [selectedCoin]);
+
+    useEffect(() => {
+        getChartData();
+    }, [chartTimePeriod]);
 
     useEffect(() => {
         getAllCoinsData();
