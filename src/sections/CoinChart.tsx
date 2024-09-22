@@ -68,7 +68,7 @@ export default function CoinChart(): ReactNode {
                 axisLabel: {
                     interval: getIntervalX(context),
                     show: true,
-                    formatter: function (value: string, index: number) {
+                    formatter: function (value: string) {
                         var date = new Date(value);
                         if (context.chartTimePeriod == 365) {
                             return date.toDateString().split(" ")[1];

@@ -146,7 +146,7 @@ export const getIntervalY = (context: ContextType): number => {
             return 1;
         }
     }
-    var prices: number[] = context.chartData.prices.map((price: any, index, array) => price[1]);
+    var prices: number[] = context.chartData.prices.map((price: any) => price[1]);
     var value = {
         min: Math.min(...prices),
         max: Math.max(...prices),

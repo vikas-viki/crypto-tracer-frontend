@@ -1,4 +1,4 @@
-import { ReactElement, useContext, useEffect, useRef } from "react";
+import { ReactElement, useContext, useRef } from "react";
 import "../styles/Coincard.css";
 import { getFormattedPrice } from "../context/utils";
 import { Context } from "../context/State";
