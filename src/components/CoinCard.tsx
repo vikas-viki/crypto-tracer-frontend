@@ -46,7 +46,7 @@ export default function CoinCard(props: {
                 title="24H change"
                 className={`coincard-change ${props.change < 0 ? "red" : "green"}`}
             >
-                {props.change < 0 ? props.change.toFixed(2) : "+" + props.change.toFixed(2)}%
+                {props.change < 0 ? props.change?.toFixed(2) : "+" + props.change?.toFixed(2)}%
             </span>
         </div>
     );
